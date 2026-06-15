@@ -15,11 +15,11 @@ type Props = {
 
 function MetricCard({ label, value, sub, color }: Metric) {
   return (
-    <div className="rounded-xl p-4 border"
+    <div className="rounded-xl p-3 border flex flex-col gap-1"
       style={{ background: 'rgba(4,78,54,0.15)', borderColor: `${color}25` }}>
-      <div className="text-2xl font-extrabold" style={{ color }}>{value}</div>
-      <div className="text-xs font-semibold text-white mt-0.5">{label}</div>
-      <div className="text-xs text-slate-500 mt-0.5">{sub}</div>
+      <div className="text-xl font-extrabold leading-tight" style={{ color }}>{value}</div>
+      <div className="text-xs font-semibold text-white leading-tight">{label}</div>
+      <div className="text-xs text-slate-500 leading-tight">{sub}</div>
     </div>
   )
 }
@@ -74,7 +74,7 @@ export default function CaseDashboard({ title, subtitle, tagline, metrics, chart
       </p>
 
       {/* Metrics */}
-      <div className="grid grid-cols-3 gap-3">
+      <div className="grid grid-cols-3 gap-2">
         {metrics.map((m) => <MetricCard key={m.label} {...m} />)}
       </div>
     </div>
