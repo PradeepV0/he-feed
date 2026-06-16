@@ -28,9 +28,12 @@ export default function PartnerRibbon() {
   return (
     <section
       className="py-12 relative overflow-hidden border-y"
-      style={{ borderColor: 'rgba(16,185,129,0.1)', background: 'rgba(4,78,54,0.06)' }}
+      style={{
+        borderColor: 'rgba(16,185,129,0.1)',
+        background: 'linear-gradient(180deg, rgba(4,78,54,0.08) 0%, rgba(10,15,29,0.95) 100%)',
+      }}
     >
-      <p className="text-center text-xs font-semibold text-slate-500 uppercase tracking-[0.2em] mb-8">
+      <p className="text-center text-xs font-semibold uppercase tracking-[0.2em] mb-8 text-slate-500">
         Trusted by 60+ clients across industries
       </p>
 
@@ -41,36 +44,18 @@ export default function PartnerRibbon() {
         style={{ background: 'linear-gradient(to left, #0A0F1D 20%, transparent)' }} />
 
       <div className="flex overflow-hidden">
-        <div className="animate-marquee flex items-center gap-6 whitespace-nowrap">
+        <div className="animate-marquee flex items-center gap-14 whitespace-nowrap px-4">
           {TRACK.map((logo, i) => (
-            <div
+            <img
               key={i}
-              className="flex-shrink-0 flex items-center justify-center transition-all duration-300"
-              style={{
-                width: '180px',
-                height: '80px',
-                padding: '12px 20px',
-                borderRadius: '12px',
-                background: '#ffffff',
-                boxShadow: '0 2px 12px rgba(0,0,0,0.25)',
-                opacity: 0.85,
-              }}
-              onMouseEnter={(e) => {
-                (e.currentTarget as HTMLElement).style.opacity = '1'
-                ;(e.currentTarget as HTMLElement).style.boxShadow = '0 4px 20px rgba(16,185,129,0.3)'
-              }}
-              onMouseLeave={(e) => {
-                (e.currentTarget as HTMLElement).style.opacity = '0.85'
-                ;(e.currentTarget as HTMLElement).style.boxShadow = '0 2px 12px rgba(0,0,0,0.25)'
-              }}
-            >
-              <img
-                src={logo.src}
-                alt={logo.alt}
-                style={{ height: '56px', width: '100%', objectFit: 'contain' }}
-                draggable={false}
-              />
-            </div>
+              src={logo.src}
+              alt={logo.alt}
+              draggable={false}
+              className="flex-shrink-0 transition-opacity duration-300"
+              style={{ height: '72px', width: 'auto', maxWidth: '200px', objectFit: 'contain', opacity: 0.8 }}
+              onMouseEnter={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = '1' }}
+              onMouseLeave={(e) => { (e.currentTarget as HTMLImageElement).style.opacity = '0.8' }}
+            />
           ))}
         </div>
       </div>
