@@ -259,7 +259,7 @@ function CoreValues() {
 
 // ─── 5. TEAM ─────────────────────────────────────────────────────────────────
 const TEAM = [
-  { name: 'Vishva Sekar', role: 'Founder & CEO', dept: 'Strategy & Vision', initial: 'VS', color: '#10B981' },
+  { name: 'Founder & CEO', role: 'Strategy & Vision', dept: 'Leadership', initial: 'VS', color: '#10B981' },
   { name: 'Growth Lead', role: 'Head of Digital Marketing', dept: 'Paid Media & SEO', initial: 'GL', color: '#D4AF37' },
   { name: 'Tech Lead', role: 'Head of Engineering', dept: 'Software & Product', initial: 'TL', color: '#10B981' },
   { name: 'Creative Head', role: 'Brand & Design Lead', dept: 'Creative & UX', initial: 'CH', color: '#D4AF37' },
