@@ -1,25 +1,22 @@
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import PartnerRibbon from './components/PartnerRibbon'
-import Services from './components/Services'
-import ProcessSection from './components/Process'
-import Results from './components/Results'
-import WhyUs from './components/WhyUs'
-import ContactFooter from './components/Contact'
 import ScrollTop from './components/ScrollTop'
+import HomePage from './pages/Home'
+import AboutPage from './pages/About'
+import ContactPage from './pages/Contact'
 
 export default function App() {
   return (
-    <div className="min-h-screen" style={{ backgroundColor: '#0A0F1D', color: '#fff' }}>
-      <Navbar />
-      <Hero />
-      <PartnerRibbon />
-      <Services />
-      <ProcessSection />
-      <Results />
-      <WhyUs />
-      <ContactFooter />
-      <ScrollTop />
-    </div>
+    <BrowserRouter>
+      <div className="min-h-screen" style={{ backgroundColor: '#0A0F1D', color: '#fff' }}>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/contact" element={<ContactPage />} />
+        </Routes>
+        <ScrollTop />
+      </div>
+    </BrowserRouter>
   )
 }

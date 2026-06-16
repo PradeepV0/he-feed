@@ -1,21 +1,7 @@
 import { useState } from 'react'
-import { Mail, Phone, MapPin, Send, CheckCircle2, ArrowRight } from 'lucide-react'
-import heFeedLogo from '../../assets/heFeedLogo.png'
+import { Mail, Phone, MapPin, Send, CheckCircle2, Clock, MessageCircle } from 'lucide-react'
+import heFeedLogo from '../assets/heFeedLogo.png'
 
-function IconX() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
-    </svg>
-  )
-}
-function IconLinkedin() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-    </svg>
-  )
-}
 function IconInstagram() {
   return (
     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
@@ -30,32 +16,23 @@ function IconFacebook() {
     </svg>
   )
 }
-function IconYoutube() {
-  return (
-    <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
-      <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-    </svg>
-  )
-}
-
-const SOCIALS = [
-  { icon: <IconX />, href: '#', label: 'X (Twitter)' },
-  { icon: <IconLinkedin />, href: '#', label: 'LinkedIn' },
-  { icon: <IconInstagram />, href: 'https://www.instagram.com/he_feed/', label: 'Instagram' },
-  { icon: <IconFacebook />, href: 'https://www.facebook.com/he.feed', label: 'Facebook' },
-  { icon: <IconYoutube />, href: '#', label: 'YouTube' },
-]
 
 const CONTACT_ITEMS = [
-  { icon: <Mail size={17} />, label: 'Email', value: 'hefeedofficial@gmail.com' },
-  { icon: <Phone size={17} />, label: 'Phone', value: '+91 94459 48121' },
-  { icon: <MapPin size={17} />, label: 'Location', value: 'Chennai, Tamil Nadu, India' },
+  { icon: <Mail size={20} />, label: 'Email Us', value: 'hefeedofficial@gmail.com', href: 'mailto:hefeedofficial@gmail.com', color: '#10B981' },
+  { icon: <Phone size={20} />, label: 'Call Us', value: '+91 94459 48121', href: 'tel:+919445948121', color: '#D4AF37' },
+  { icon: <MapPin size={20} />, label: 'Our Office', value: 'Chennai, Tamil Nadu, India', href: '#', color: '#10B981' },
+  { icon: <Clock size={20} />, label: 'Working Hours', value: 'Mon–Sat, 9 AM – 7 PM IST', href: '#', color: '#D4AF37' },
 ]
 
-type FormState = { name: string; email: string; service: string; message: string }
+const SOCIALS = [
+  { icon: <IconInstagram />, href: 'https://www.instagram.com/he_feed/', label: 'Instagram' },
+  { icon: <IconFacebook />, href: 'https://www.facebook.com/he.feed', label: 'Facebook' },
+]
 
-export default function ContactFooter() {
-  const [form, setForm] = useState<FormState>({ name: '', email: '', service: '', message: '' })
+type FormState = { name: string; email: string; phone: string; service: string; message: string }
+
+export default function ContactPage() {
+  const [form, setForm] = useState<FormState>({ name: '', email: '', phone: '', service: '', message: '' })
   const [submitted, setSubmitted] = useState(false)
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -67,102 +44,110 @@ export default function ContactFooter() {
     setSubmitted(true)
   }
 
-  const inputStyle: React.CSSProperties = {
-    background: 'rgba(255,255,255,0.04)',
-    borderColor: 'rgba(16,185,129,0.2)',
-  }
+  const inputStyle: React.CSSProperties = { background: 'rgba(255,255,255,0.04)', borderColor: 'rgba(16,185,129,0.2)' }
   const inputClass = 'w-full px-4 py-3 rounded-xl text-sm text-white placeholder-slate-500 border outline-none transition-all duration-200 focus:ring-2 focus:ring-emerald-500/30'
 
   return (
-    <footer
-      id="contact"
-      style={{ background: 'linear-gradient(180deg, #0A0F1D 0%, #050A0F 100%)', borderTop: '1px solid rgba(16,185,129,0.1)' }}
-    >
-      {/* CTA banner */}
-      <div className="relative overflow-hidden" style={{ background: 'linear-gradient(135deg, #044E36, #07291D)' }}>
-        <div
-          className="absolute inset-0 pointer-events-none opacity-20"
-          style={{
-            backgroundImage: 'linear-gradient(#10B981 1px, transparent 1px), linear-gradient(90deg, #10B981 1px, transparent 1px)',
-            backgroundSize: '40px 40px',
-          }}
-        />
-        <div className="relative max-w-7xl mx-auto px-6 lg:px-8 py-16 text-center space-y-4">
-          <h2 className="text-4xl lg:text-5xl font-extrabold text-white">
-            Ready to Transform <span style={{ color: '#D4AF37' }}>Your Business?</span>
-          </h2>
-          <p className="text-slate-200 text-lg max-w-xl mx-auto">
-            Over 5 years of delivering guaranteed growth. Your next chapter starts with one conversation.
-          </p>
-          <a
-            href="#contact"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold text-white transition-all duration-300 hover:scale-105 mt-2"
-            style={{ background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.25)' }}
-          >
-            Book Your Free Call <ArrowRight size={16} />
-          </a>
+    <div className="min-h-screen" style={{ backgroundColor: '#0A0F1D', color: '#fff' }}>
+      {/* Hero */}
+      <section
+        className="relative pt-36 pb-20 overflow-hidden"
+        style={{ background: 'linear-gradient(160deg, #0A0F1D 0%, #07170F 55%, #0A0F1D 100%)' }}
+      >
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-1/3 left-1/4 w-96 h-96 rounded-full blur-3xl opacity-15"
+            style={{ background: 'radial-gradient(circle, #10B981, transparent)' }} />
+          <div className="absolute bottom-1/4 right-1/3 w-72 h-72 rounded-full blur-3xl opacity-10"
+            style={{ background: 'radial-gradient(circle, #D4AF37, transparent)' }} />
         </div>
-      </div>
+        <div className="relative max-w-3xl mx-auto px-6 text-center space-y-5">
+          <span
+            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-widest"
+            style={{ background: 'rgba(16,185,129,0.1)', color: '#10B981', border: '1px solid rgba(16,185,129,0.25)' }}
+          >
+            <MessageCircle size={12} /> Get In Touch
+          </span>
+          <h1 className="text-5xl lg:text-6xl font-extrabold text-white leading-tight">
+            Let's Build Something{' '}
+            <span className="text-gradient-mint">Great Together</span>
+          </h1>
+          <p className="text-lg text-slate-300 leading-relaxed max-w-xl mx-auto">
+            Tell us about your business goals and we'll show you exactly how HEFeed can help you achieve them — faster and at a fraction of the cost.
+          </p>
+        </div>
+      </section>
 
-      {/* Main grid */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-        <div className="grid lg:grid-cols-2 gap-16">
+      {/* Main */}
+      <section className="py-16 relative">
+        <div className="max-w-7xl mx-auto px-6 lg:px-8">
+          <div className="grid lg:grid-cols-2 gap-14">
 
-          {/* Left */}
-          <div className="space-y-8">
-            <img src={heFeedLogo} alt="HEFeed" className="h-10 w-auto object-contain" />
-            <p className="text-slate-400 leading-relaxed max-w-sm">
-              HEFeed is a full-service integrated growth agency delivering Software Development,
-              Digital Marketing, and Business Consultancy under one roof — with 5+ years of
-              proven, data-backed results.
-            </p>
-            <div className="space-y-4">
-              {CONTACT_ITEMS.map((item) => (
-                <div key={item.label} className="flex items-center gap-3">
-                  <div
-                    className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
-                    style={{ background: 'rgba(16,185,129,0.1)', color: '#10B981', border: '1px solid rgba(16,185,129,0.2)' }}
+            {/* Left: Info */}
+            <div className="space-y-8">
+              <div>
+                <img src={heFeedLogo} alt="HEFeed" className="h-10 w-auto object-contain mb-6" />
+                <p className="text-slate-400 leading-relaxed max-w-sm">
+                  HEFeed is a full-service integrated growth agency delivering Software Development,
+                  Digital Marketing, and Business Consultancy — with 5+ years of proven, data-backed results.
+                </p>
+              </div>
+
+              <div className="grid sm:grid-cols-2 gap-4">
+                {CONTACT_ITEMS.map((item) => (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    className="flex items-start gap-3 p-4 rounded-2xl border transition-all duration-200 hover:-translate-y-0.5 group"
+                    style={{ background: 'rgba(4,78,54,0.1)', borderColor: `${item.color}20` }}
                   >
-                    {item.icon}
-                  </div>
-                  <div>
-                    <div className="text-xs text-slate-500">{item.label}</div>
-                    <div className="text-sm text-slate-200 font-medium">{item.value}</div>
-                  </div>
-                </div>
-              ))}
-            </div>
-            <div className="flex items-center gap-3 pt-2">
-              {SOCIALS.map((s) => (
-                <a
-                  key={s.label}
-                  href={s.href}
-                  aria-label={s.label}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 rounded-xl flex items-center justify-center border transition-all duration-200 hover:scale-110"
-                  style={{ background: 'rgba(255,255,255,0.04)', borderColor: 'rgba(16,185,129,0.2)', color: '#94a3b8' }}
-                  onMouseEnter={(e) => {
-                    const el = e.currentTarget as HTMLElement
-                    el.style.color = '#10B981'
-                    el.style.borderColor = 'rgba(16,185,129,0.6)'
-                    el.style.background = 'rgba(16,185,129,0.1)'
-                  }}
-                  onMouseLeave={(e) => {
-                    const el = e.currentTarget as HTMLElement
-                    el.style.color = '#94a3b8'
-                    el.style.borderColor = 'rgba(16,185,129,0.2)'
-                    el.style.background = 'rgba(255,255,255,0.04)'
-                  }}
-                >
-                  {s.icon}
-                </a>
-              ))}
-            </div>
-          </div>
+                    <div
+                      className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0"
+                      style={{ background: `${item.color}15`, color: item.color, border: `1px solid ${item.color}30` }}
+                    >
+                      {item.icon}
+                    </div>
+                    <div>
+                      <div className="text-xs text-slate-500 font-medium">{item.label}</div>
+                      <div className="text-sm text-slate-200 font-semibold mt-0.5 leading-snug">{item.value}</div>
+                    </div>
+                  </a>
+                ))}
+              </div>
 
-          {/* Right: form */}
-          <div>
+              {/* Social */}
+              <div className="space-y-3">
+                <p className="text-xs font-semibold text-slate-500 uppercase tracking-widest">Follow Us</p>
+                <div className="flex items-center gap-3">
+                  {SOCIALS.map((s) => (
+                    <a
+                      key={s.label}
+                      href={s.href}
+                      aria-label={s.label}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="w-10 h-10 rounded-xl flex items-center justify-center border transition-all duration-200 hover:scale-110"
+                      style={{ background: 'rgba(255,255,255,0.04)', borderColor: 'rgba(16,185,129,0.2)', color: '#94a3b8' }}
+                      onMouseEnter={(e) => {
+                        const el = e.currentTarget as HTMLElement
+                        el.style.color = '#10B981'
+                        el.style.borderColor = 'rgba(16,185,129,0.6)'
+                        el.style.background = 'rgba(16,185,129,0.1)'
+                      }}
+                      onMouseLeave={(e) => {
+                        const el = e.currentTarget as HTMLElement
+                        el.style.color = '#94a3b8'
+                        el.style.borderColor = 'rgba(16,185,129,0.2)'
+                        el.style.background = 'rgba(255,255,255,0.04)'
+                      }}
+                    >
+                      {s.icon}
+                    </a>
+                  ))}
+                </div>
+              </div>
+            </div>
+
+            {/* Right: Form */}
             <div
               className="rounded-3xl p-8 border space-y-6"
               style={{
@@ -177,7 +162,7 @@ export default function ContactFooter() {
               </div>
 
               {submitted ? (
-                <div className="py-12 text-center space-y-4">
+                <div className="py-14 text-center space-y-4">
                   <div
                     className="w-16 h-16 rounded-full flex items-center justify-center mx-auto"
                     style={{ background: 'rgba(16,185,129,0.15)', border: '2px solid #10B981' }}
@@ -202,6 +187,11 @@ export default function ContactFooter() {
                       <input name="email" type="email" required placeholder="you@company.com"
                         value={form.email} onChange={handleChange} className={inputClass} style={inputStyle} />
                     </div>
+                  </div>
+                  <div>
+                    <label className="block text-xs font-semibold text-slate-400 mb-1.5">Phone Number</label>
+                    <input name="phone" type="tel" placeholder="+91 98765 43210"
+                      value={form.phone} onChange={handleChange} className={inputClass} style={inputStyle} />
                   </div>
                   <div>
                     <label className="block text-xs font-semibold text-slate-400 mb-1.5">Service Needed *</label>
@@ -236,21 +226,21 @@ export default function ContactFooter() {
             </div>
           </div>
         </div>
-      </div>
+      </section>
 
       {/* Sub-footer */}
       <div className="border-t" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
         <div className="max-w-7xl mx-auto px-6 lg:px-8 py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-slate-600">
-            © {new Date().getFullYear()} HEFeed. All rights reserved. Integrated Stack Development &amp; Marketing.
+            © {new Date().getFullYear()} HEFeed. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
-            {['Privacy Policy', 'Terms of Service', 'Cookie Policy'].map((link) => (
+            {['Privacy Policy', 'Terms of Service'].map((link) => (
               <a key={link} href="#" className="text-xs text-slate-600 hover:text-slate-400 transition-colors duration-200">{link}</a>
             ))}
           </div>
         </div>
       </div>
-    </footer>
+    </div>
   )
 }

@@ -1,46 +1,85 @@
-import { Globe } from 'lucide-react'
+import adore from '../assets/clientLogos/adore.png'
+import desq from '../assets/clientLogos/desq.png'
+import dvs from '../assets/clientLogos/dvs.png'
+import energy from '../assets/clientLogos/energy .png'
+import groming from '../assets/clientLogos/groming.png'
+import iec from '../assets/clientLogos/iec.png'
+import jolie from '../assets/clientLogos/jolie.png'
+import lin from '../assets/clientLogos/lin.png'
+import qabar from '../assets/clientLogos/qa bar.png'
+import solar from '../assets/clientLogos/solar.png'
 
-const CLIENTS = [
-  'DESQ Workspace', 'Regal Engineers & Contractors', 'Solarrays',
-  'Shaai Salon', 'Qualitix Consulting', "Lin's Cafe",
-  'DESQ Workspace', 'Regal Engineers & Contractors', 'Solarrays',
-  'Shaai Salon', 'Qualitix Consulting', "Lin's Cafe",
+const LOGOS = [
+  { src: adore, alt: 'Adore' },
+  { src: desq, alt: 'DESQ' },
+  { src: dvs, alt: 'DVS' },
+  { src: energy, alt: 'Energy' },
+  { src: groming, alt: 'Grooming' },
+  { src: iec, alt: 'IEC' },
+  { src: jolie, alt: 'Jolie' },
+  { src: lin, alt: "Lin's" },
+  { src: qabar, alt: 'QA Bar' },
+  { src: solar, alt: 'Solar' },
 ]
+
+const TRACK = [...LOGOS, ...LOGOS]
 
 export default function PartnerRibbon() {
   return (
-    <section
-      className="py-10 relative overflow-hidden border-y"
-      style={{ borderColor: 'rgba(16,185,129,0.08)', background: 'rgba(4,78,54,0.06)' }}
+    <section className="py-14 relative overflow-hidden border-y"
+      style={{ borderColor: 'rgba(16,185,129,0.1)', background: 'rgba(4,78,54,0.07)' }}
     >
-      {/* Fade edges */}
-      <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
-        style={{ background: 'linear-gradient(to right, #0A0F1D, transparent)' }} />
-      <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none"
-        style={{ background: 'linear-gradient(to left, #0A0F1D, transparent)' }} />
+      {/* Heading */}
+      <p className="text-center text-xs font-semibold text-slate-500 uppercase tracking-[0.2em] mb-10">
+        Trusted by 60+ clients across industries
+      </p>
 
+      {/* Fade edges */}
+      <div className="absolute left-0 top-0 bottom-0 w-32 z-10 pointer-events-none"
+        style={{ background: 'linear-gradient(to right, #0A0F1D 30%, transparent)' }} />
+      <div className="absolute right-0 top-0 bottom-0 w-32 z-10 pointer-events-none"
+        style={{ background: 'linear-gradient(to left, #0A0F1D 30%, transparent)' }} />
+
+      {/* Scrolling track */}
       <div className="flex overflow-hidden">
-        <div className="animate-marquee flex items-center gap-12 whitespace-nowrap">
-          {CLIENTS.map((name, i) => (
-            <div key={i} className="flex items-center gap-3 flex-shrink-0">
-              <div
-                className="w-6 h-6 rounded-full flex-shrink-0 flex items-center justify-center"
-                style={{ background: 'rgba(16,185,129,0.15)', border: '1px solid rgba(16,185,129,0.3)' }}
-              >
-                <Globe size={12} color="#10B981" />
-              </div>
-              <span className="text-sm font-semibold text-slate-400 hover:text-white transition-colors duration-200">
-                {name}
-              </span>
+        <div className="animate-marquee flex items-center whitespace-nowrap" style={{ gap: '3rem' }}>
+          {TRACK.map((logo, i) => (
+            <div
+              key={i}
+              className="flex-shrink-0 flex items-center justify-center transition-all duration-300 cursor-default"
+              style={{
+                width: '160px',
+                height: '72px',
+                padding: '10px 16px',
+                borderRadius: '14px',
+                background: 'rgba(255,255,255,0.04)',
+                border: '1px solid rgba(16,185,129,0.08)',
+                filter: 'grayscale(1) brightness(0.55)',
+                opacity: 0.65,
+              }}
+              onMouseEnter={(e) => {
+                const el = e.currentTarget as HTMLElement
+                el.style.filter = 'grayscale(0) brightness(1)'
+                el.style.opacity = '1'
+                el.style.background = 'rgba(255,255,255,0.08)'
+                el.style.borderColor = 'rgba(16,185,129,0.25)'
+              }}
+              onMouseLeave={(e) => {
+                const el = e.currentTarget as HTMLElement
+                el.style.filter = 'grayscale(1) brightness(0.55)'
+                el.style.opacity = '0.65'
+                el.style.background = 'rgba(255,255,255,0.04)'
+                el.style.borderColor = 'rgba(16,185,129,0.08)'
+              }}
+            >
+              <img
+                src={logo.src}
+                alt={logo.alt}
+                style={{ height: '48px', width: '100%', objectFit: 'contain' }}
+              />
             </div>
           ))}
         </div>
-      </div>
-
-      <div className="text-center mt-4">
-        <span className="text-xs text-slate-600 uppercase tracking-widest">
-          Trusted across industries — Real Estate · Tech · Hospitality · Engineering · Wellness
-        </span>
       </div>
     </section>
   )
