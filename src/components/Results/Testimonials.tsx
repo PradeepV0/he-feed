@@ -3,39 +3,68 @@ import { ChevronLeft, ChevronRight, Star } from 'lucide-react'
 
 const TESTIMONIALS = [
   {
-    name: 'Arjun Mehta',
-    company: 'PropNest Realty',
-    initial: 'AM',
+    name: 'Pradeep',
+    company: 'Digital Marketing Client',
+    service: 'Digital Marketing',
+    initial: 'PR',
     color: '#10B981',
-    text: 'HEFeed delivered 2,500+ qualified leads in just two months at ₹19 per lead — 81% below industry average. Their hyper-local targeting and WhatsApp automation funnel was unlike anything we had seen before.',
+    text: 'hefeed ran our Meta and Google campaigns with surgical precision. Within 45 days our leads doubled and cost per lead dropped by 68%. Their creative frameworks and targeting strategy is on another level entirely.',
   },
   {
-    name: 'Sneha Rajan',
-    company: 'CloudPilot SaaS',
-    initial: 'SR',
+    name: 'Dhivya Dharashini',
+    company: 'Software Development Client',
+    service: 'Software Development',
+    initial: 'DD',
     color: '#D4AF37',
-    text: 'We went from zero inbound leads to 1,000+ high-intent sign-ups in under 30 days. The creative frameworks HEFeed built for our Meta campaigns were razor-sharp. They built a repeatable growth engine for us.',
+    text: 'The custom ERP platform Hefeed built for us replaced three different tools we were using. Clean UI, fast performance, and they delivered on time. Our operations team adapted to it within a week — zero friction.',
   },
   {
-    name: 'Karthik Subramaniam',
-    company: 'NovaBuild Engineering',
-    initial: 'KS',
+    name: 'Hariharan',
+    company: 'Interior Design Client',
+    service: 'Interior Design',
+    initial: 'HH',
     color: '#10B981',
-    text: 'From branding to website to Google Ads — HEFeed handled everything under one roof. Our cost per acquisition dropped 64% in 90 days and our qualified pipeline tripled. Best business decision we made.',
+    text: 'HEFEED designed and launched our interior studio website with a stunning portfolio showcase. Enquiries from the site went up 3x in the first month. The design perfectly captures our brand aesthetic.',
   },
   {
-    name: 'Priya Nair',
-    company: 'LuxeStay Hospitality',
-    initial: 'PN',
+    name: 'Jerish',
+    company: 'Analytics & Strategy Client',
+    service: 'Business Analytics',
+    initial: 'JR',
     color: '#D4AF37',
-    text: 'The custom booking platform reduced our front-desk load by 40% and boosted online reservations significantly. Their team truly understood our business before writing a single line of code.',
+    text: 'The analytics dashboard he feed built gave us real-time visibility into our sales funnel for the first time. We identified two major revenue leaks within the first week and fixed them immediately. Game changer.',
   },
   {
-    name: 'Rahul Sharma',
-    company: 'TechNova Solutions',
-    initial: 'RS',
+    name: 'Akther',
+    company: 'Digital Marketing Client',
+    service: 'Digital Marketing',
+    initial: 'AK',
     color: '#10B981',
-    text: 'HEFeed transformed our digital presence completely. Within 60 days of the campaign launch, our inbound inquiries tripled and our brand visibility across South India improved dramatically.',
+    text: 'Our Instagram and Facebook presence was almost zero before Hefeed. In 60 days they grew our following by 4,200 and converted 380+ of them into paying customers. ROI was beyond what we expected.',
+  },
+  {
+    name: 'Vickey',
+    company: 'Software Development Client',
+    service: 'Software Development',
+    initial: 'VK',
+    color: '#D4AF37',
+    text: 'We needed a mobile app built fast and built right. HEFEED delivered a fully functional iOS and Android app in 8 weeks. The code quality, documentation, and post-launch support were all excellent.',
+  },
+  {
+    name: 'Vishva',
+    company: 'Analytics & Strategy Client',
+    service: 'Business Analytics',
+    initial: 'VS',
+    color: '#10B981',
+    text: 'he-feed audited our entire marketing spend and showed us exactly where money was being wasted. Their data-driven strategy cut our ad budget by 30% while increasing total conversions by 55%. Brilliant team.',
+  },
+  {
+    name: 'Jeevan',
+    company: 'Interior Design Client',
+    service: 'Interior Design',
+    initial: 'JV',
+    color: '#D4AF37',
+    text: 'We hired HeFeed to build our interior design brand from scratch — logo, website, social media, and lead generation. In 3 months we had more project inquiries than we could handle. Truly a full-service partner.',
   },
 ]
 
@@ -179,7 +208,7 @@ export default function Testimonials() {
                   {/* Client info */}
                   <div className="pt-3 border-t" style={{ borderColor: 'rgba(255,255,255,0.06)' }}>
                     <div className="font-bold text-white text-sm">{t.name}</div>
-                    <div className="text-xs italic mt-0.5" style={{ color: t.color }}>{t.company}</div>
+                    <div className="text-xs italic mt-0.5" style={{ color: t.color }}>{t.service}</div>
                   </div>
                 </div>
               </div>
