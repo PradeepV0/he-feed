@@ -20,7 +20,7 @@ function IconFacebook() {
 const CONTACT_ITEMS = [
   { icon: <Mail size={20} />, label: 'Email Us', value: 'hefeedofficial@gmail.com', href: 'mailto:hefeedofficial@gmail.com', color: '#10B981' },
   { icon: <Phone size={20} />, label: 'Call Us', value: '+91 94459 48121', href: 'tel:+919445948121', color: '#D4AF37' },
-  { icon: <MapPin size={20} />, label: 'Our Office', value: 'Chennai, Tamil Nadu, India', href: '#', color: '#10B981' },
+  { icon: <MapPin size={20} />, label: 'Our Offices', value: 'Chennai · Salem · Hosur, Tamil Nadu', href: '#', color: '#10B981' },
   { icon: <Clock size={20} />, label: 'Working Hours', value: 'Mon–Sat, 9 AM – 7 PM IST', href: '#', color: '#D4AF37' },
 ]
 

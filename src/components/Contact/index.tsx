@@ -49,7 +49,7 @@ const SOCIALS = [
 const CONTACT_ITEMS = [
   { icon: <Mail size={17} />, label: 'Email', value: 'hefeedofficial@gmail.com' },
   { icon: <Phone size={17} />, label: 'Phone', value: '+91 94459 48121' },
-  { icon: <MapPin size={17} />, label: 'Location', value: 'Chennai, Tamil Nadu, India' },
+  { icon: <MapPin size={17} />, label: 'Locations', value: 'Chennai · Salem · Hosur, Tamil Nadu' },
 ]
 
 type FormState = { name: string; email: string; service: string; message: string }
